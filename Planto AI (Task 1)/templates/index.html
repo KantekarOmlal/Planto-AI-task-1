@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Logo + Title -->
+  <div class="flex items-center justify-center mb-6 space-x-4">
+    <img
+      src="{{ url_for('static', filename='logo.png') }}"
+      alt="Logo"
+      class="w-[15rem] h-[15rem] rounded-full shadow-md" 
+    />
+    <h1 class="text-4xl font-bold">🚀 Code Copilot</h1>
+  </div>
+  
+  </div>    
+  <head>
+    <meta charset="UTF-8" />
+    <title>Code Copilot ✨ | Groq LLM</title>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body
+    class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-start p-6"
+  >
+    <div class="w-full max-w-4xl" data-aos="fade-down">
+      <h1 class="text-4xl font-bold mb-6 text-center">
+        🚀 Code Copilot - Powered by Groq
+      </h1>
+      <form method="POST" class="bg-gray-800 p-6 rounded-xl shadow-lg">
+        <label for="prompt" class="block text-lg mb-2"
+          >💬 Ask your coding question:</label
+        >
+        <textarea
+          name="prompt"
+          id="prompt"
+          rows="5"
+          class="w-full p-3 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+          placeholder="E.g., Write a Python code for merge sort..."
+        ></textarea>
+        <button
+          type="submit"
+          class="mt-4 bg-purple-600 hover:bg-purple-700 px-5 py-2 rounded text-white font-semibold transition-all"
+        >
+          Ask Copilot
+        </button>
+      </form>
+    </div>
+
+    {% if answer %}
+    <div class="w-full max-w-4xl mt-8" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold mb-2">🤖 Copilot's Response:</h2>
+      <pre
+        class="bg-gray-800 p-4 rounded shadow overflow-x-auto text-green-300 whitespace-pre-wrap"
+      >
+{{ answer }}</pre
+      >
+    </div>
+    {% endif %}
+
+    <!-- Footer -->
+    <footer class="mt-16 text-sm text-gray-400">
+      Built with ❤️ using Groq LLM & Flask
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
